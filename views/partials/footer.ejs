@@ -2,5 +2,27 @@
   <footer>
     <p>Copyright © <%= new Date().getFullYear() %></p>
   </footer>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script>
+    console.log("got to this script");
+    $(".delete-button").each((index, element) => {
+      $(element).click((event) => {
+        var postID = $(element).parent().attr("id");
+        fetch(`/delete/${postID}`, {
+          method: 'DELETE',
+          headers: {
+            'Content-Type': 'application/json',
+            // Add any additional headers if needed
+          },
+        }).then(response => {
+            if (!response.ok) {
+              throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            console.log('Item deleted successfully');
+            window.location.href = "/";
+          }).catch(error => console.error('Error:', error));
+      });
+    });
+  </script>
 </body>
 </html>
