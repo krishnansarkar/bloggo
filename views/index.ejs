@@ -1,0 +1,16 @@
+<%- include("partials/header.ejs") %>
+
+<h1>Bloggo</h1>
+<form action="/submit" method="POST">
+  <input type="text" name="title" placeholder="Title" />
+  <textarea type="text" name="content" placeholder="Content">
+  </textarea>
+  <input type="submit" value="Submit" />
+</form>
+<% blogposts.forEach((post) => { %>
+  <h2><%= post.title %></h2>
+  <p><%= post.content %></p>
+<% }) %>
+
+<% include ("partials/footer.ejs") %>
+    
