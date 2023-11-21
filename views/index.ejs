@@ -1,27 +1,30 @@
 <%- include("partials/header.ejs") %>
 
-<h1>Bloggo</h1>
-<form action="/submit" method="POST">
-  <input type="text" name="title" placeholder="Title" />
-  <textarea type="text" name="content" placeholder="Content"></textarea>
-  <input type="submit" value="Submit" />
-</form>
+<h1 class="blog-title">Bloggo</h1>
+<div class="new-post">
+  <h2>New Post</h2>
+  <form action="/submit" method="POST">
+    <input class="title" type="text" name="title" placeholder="Title" />
+    <textarea type="text" name="content" placeholder="Content"></textarea>
+    <input type="submit" value="Submit" />
+  </form>
+</div>
 <% blogposts.forEach((post) => { %>
-  <div id=<%= post.id %>>
+  <div class="post" id=<%= post.id %>>
     <% if(!post.isEditting) { %>
-      <h2><%= post.title %></h2>
-      <p><%= post.content %></p>
+      <h2 class="col-12"><%= post.title %></h2>
+      <p class="col-12"><%= post.content %></p>
       <button class="edit-button" type="button">Edit</button>
       <button class="delete-button" type="button" >Delete</button>
     <% } else { %>
       <h2><%= post.title %></h2>
-      <textarea type="text" name="content"><%= post.content %></textarea>
+      <textarea class="col-12" type="text" name="content"><%= post.content %></textarea>
       <button class="edit-submit-button" type="button">Submit</button>
       <button class="delete-button" type="button" >Delete</button>
     <% } %>
   </div>
-
 <% }) %>
+
 
 <%- include ("partials/footer.ejs") %>
     

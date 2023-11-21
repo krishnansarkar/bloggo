@@ -1,0 +1,39 @@
+.blog-title {
+  text-align: center;
+}
+
+.new-post {
+  width: 400px;
+  margin: auto;
+}
+
+.new-post .title {
+  width: 400px;
+  position: relative;
+}
+.new-post textarea {
+  width: 400px;
+  position: relative;
+}
+
+.post {
+  width: 400px;
+  margin: auto;
+  border: 1px solid black;
+  margin-top: 20px;
+  padding: 5px;
+}
+
+.post h2 {
+  margin: 0;
+  border-bottom: 1px dashed black;
+}
+
+.post textarea {
+  width: 395px;
+  position: relative;
+}
+
+footer p {
+  text-align: center;
+}
