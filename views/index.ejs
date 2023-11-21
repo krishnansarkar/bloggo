@@ -3,16 +3,24 @@
 <h1>Bloggo</h1>
 <form action="/submit" method="POST">
   <input type="text" name="title" placeholder="Title" />
-  <textarea type="text" name="content" placeholder="Content">
-  </textarea>
+  <textarea type="text" name="content" placeholder="Content"></textarea>
   <input type="submit" value="Submit" />
 </form>
 <% blogposts.forEach((post) => { %>
   <div id=<%= post.id %>>
-    <h2><%= post.title %></h2>
-    <p><%= post.content %></p>
-    <button class="delete-button" type="button" >Delete</button>
+    <% if(!post.isEditting) { %>
+      <h2><%= post.title %></h2>
+      <p><%= post.content %></p>
+      <button class="edit-button" type="button">Edit</button>
+      <button class="delete-button" type="button" >Delete</button>
+    <% } else { %>
+      <h2><%= post.title %></h2>
+      <textarea type="text" name="content"><%= post.content %></textarea>
+      <button class="edit-submit-button" type="button">Submit</button>
+      <button class="delete-button" type="button" >Delete</button>
+    <% } %>
   </div>
+
 <% }) %>
 
 <%- include ("partials/footer.ejs") %>

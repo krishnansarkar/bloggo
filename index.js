@@ -8,7 +8,8 @@ var postCounter = 0;
 var blogposts = [{
   title: "First Post",
   content: "This is my first post",
-  id: postCounter
+  isEditting: true,
+  id: postCounter,
 }];
 
 app.use(bodyParser.urlencoded({extended: true}));
@@ -27,11 +28,29 @@ app.post("/submit", (req, res) => {
   var newPost = {
     title: req.body["title"],
     content: req.body["content"],
+    isEditting: false,
     id: ++postCounter
   }
   blogposts.unshift(newPost);
   req.method = "GET";
-  res.redirect('/');
+  res.redirect("/");
+})
+
+app.patch("/edit/:id", (req, res) => {
+  var postID = parseInt(req.params.id);
+  var post = blogposts.find(x => x.id == postID);
+  post.isEditting = true;
+  console.log(post);
+  renderHome(res);
+})
+
+app.put("/edit-submit/:id/:content", (req, res) => {
+  var postID = parseInt(req.params.id);
+  var post = blogposts.find(x => x.id == postID);
+  post.content = req.params.content;
+  post.isEditting = false;
+  console.log(post);
+  renderHome(res);
 })
 
 app.delete("/delete/:id", (req, res) => {
