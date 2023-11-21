@@ -1,19 +1,37 @@
 .blog-title {
   text-align: center;
+  font-family: monospace;
+  text-align: center;
+    font-family: monospace;
+    width: 400px;
+    margin: 0px auto 10px auto;
+    background-color: blueviolet;
+    color: white;
+    padding: 5px 0px;
 }
 
 .new-post {
-  width: 400px;
+  width: 405px;
+  border: 3px dashed grey;
   margin: auto;
+  padding: 5px;
+}
+
+.new-post h2 {
+  margin: 0;
+  font-family: monospace;
 }
 
 .new-post .title {
   width: 400px;
   position: relative;
+  border: 1px solid black;
 }
 .new-post textarea {
   width: 400px;
   position: relative;
+  border: 1px solid black;
+  resize: none;
 }
 
 .post {
@@ -26,12 +44,15 @@
 
 .post h2 {
   margin: 0;
+  font-family: monospace;
   border-bottom: 1px dashed black;
 }
 
 .post textarea {
   width: 395px;
   position: relative;
+  border: 1px dashed black;
+  resize: none;
 }
 
 footer p {

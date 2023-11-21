@@ -8,7 +8,7 @@ var postCounter = 0;
 var blogposts = [{
   title: "First Post",
   content: "This is my first post",
-  isEditting: true,
+  isEditting: false,
   id: postCounter,
 }];
 
@@ -41,7 +41,6 @@ app.patch("/edit/:id", (req, res) => {
   var postID = parseInt(req.params.id);
   var post = blogposts.find(x => x.id == postID);
   post.isEditting = true;
-  console.log(post);
   renderHome(res);
 })
 
