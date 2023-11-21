@@ -13,6 +13,7 @@ var blogposts = [{
 }];
 
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.static("public"));
 
 function renderHome(res) {
   res.render("index.ejs", {
