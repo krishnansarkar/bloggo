@@ -49,7 +49,6 @@ app.put("/edit-submit/:id/:content", (req, res) => {
   var post = blogposts.find(x => x.id == postID);
   post.content = req.params.content;
   post.isEditting = false;
-  console.log(post);
   renderHome(res);
 })
 
